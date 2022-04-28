@@ -12,14 +12,14 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	private String name;
-	private String City;
+	private String city;
 	private String status;
 	
 	public User(int id, String name, String city, String status) {
 		super();
 		this.id = id;
 		this.name = name;
-		City = city;
+		this.city = city;
 		this.status = status;
 	}
 	
@@ -42,10 +42,10 @@ public class User {
 		this.name = name;
 	}
 	public String getCity() {
-		return City;
+		return city;
 	}
 	public void setCity(String city) {
-		City = city;
+		this.city = city;
 	}
 	public String getStatus() {
 		return status;
@@ -56,7 +56,7 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", City=" + City + ", status=" + status + "]";
+		return "User [id=" + id + ", name=" + name + ", city=" + city + ", status=" + status + "]";
 	}
 	
 	

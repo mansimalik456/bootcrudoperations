@@ -42,6 +42,7 @@ public class BootjpaexampleApplication {
 		System.out.println("Done \n");  
 	
 //Save Multiple objects	
+		
 		System.out.println("Saving multiple user at the same time : ");
 		List<User> users2 = List.of(user1,user2);
 		Iterable<User> result1 = userRepository.saveAll(users2);
@@ -49,9 +50,23 @@ public class BootjpaexampleApplication {
 		System.out.println("Saved\n");
 		
 		
-// Update the user id of 5	
 		
-	    System.out.println("Update the user id of 8 : ");
+// Find name using custom method
+		
+		System.out.println("Print Mansi Data : ");
+		List<User> user5 = userRepository.findAllByName("Mansi Malik");
+		user5.forEach(e->System.out.println(e)); 
+		
+// Find data using findByNameAndCity
+		
+		System.out.println("\n\nPrint Data name Mansi Malik And City Delhi : ");
+		List<User> user6 = userRepository.findAllByNameAndCity("Mansi Malik", "Delhi");
+		user6.forEach(f->System.out.println(f)); 
+		
+		
+// Update the user id of 8
+		
+	/*  System.out.println("Update the user id of 8 : ");
 	    
 		Optional<User> optional = userRepository.findById(8);
 		User user = optional.get();
@@ -59,12 +74,12 @@ public class BootjpaexampleApplication {
 		user.setName("Ram singh");
 		User result2 = userRepository.save(user);
 		System.out.println(result2); 
-		System.out.println("Updated\n");
+		System.out.println("Updated\n");  */
 		
 //Print the users using iterator method		
 		Iterable<User> itr = userRepository.findAll();
 		
-		System.out.println("Print the users using iterator : ");
+		System.out.println("\n\nPrint the users using iterator : ");
 		Iterator<User> iterator = itr.iterator(); 
 		while(iterator.hasNext()) {
 			User user3 = iterator.next();
@@ -82,23 +97,23 @@ public class BootjpaexampleApplication {
 		});  
 		System.out.println("---Printed---\n");
 		
-		System.out.println("Print the users using for each : ");
+		System.out.println("Print the users using for each (lembda): ");
 		itr.forEach(user4->{System.out.println(user4);}); 
 		System.out.println("Printed using for each\n");
-		
+				
 		
 // Deleting the user element 
 		
-		System.out.println("Delete single user at a time using deleteById method() id=5 : ");
+	/*	System.out.println("Delete single user at a time using deleteById method() id=5 : ");
 		userRepository.deleteById(30);
-		System.out.println("Deleted single user\n"); 
+		System.out.println("Deleted single user\n");   */
 		
 		
-		System.out.println("Deleted all user using deleteAll() method : ");
+	/*	System.out.println("Deleted all user using deleteAll() method : ");
 		Iterable<User> allusers = userRepository.findAll();
-		allusers.forEach(user5->System.out.println(user5));
+		allusers.forEach(users->System.out.println(users));
 		userRepository.deleteAll(allusers);
-		System.out.println("Deleted all users \n");  
+		System.out.println("Deleted all users \n");   */
 		
 		
 		
